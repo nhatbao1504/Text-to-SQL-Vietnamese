@@ -75,11 +75,12 @@ Since both datasets are originally in English, we translated **natural language 
 ---
 
 ## 📊 Experimental Results
-| Model           | Dataset (VN) | EM (%) | EA (%) |
-|-----------------|--------------|--------|--------|
-| Qwen2.5-3B      | Spider       | 78.5   | 82.1   |
-| Llama3.2-3B     | Spider       | 75.2   | 79.3   |
-| Ministral-3B    | Spider       | 73.6   | 80.4   |
+
+| Model         | EM Accuracy (%) | Execution Accuracy (%) |
+|---------------|-----------------|-------------------------|
+| Qwen2.5-3B    | 42              | 54                      |
+| Llama3.2-3B   | 42              | 48                      |
+| Ministral-3B  | 34              | 46                      |
 
 ---
 
@@ -88,6 +89,25 @@ Since both datasets are originally in English, we translated **natural language 
 - **Execution Accuracy (EA):** Measures whether the predicted query, when executed on the database, returns the same result as the gold query.  
 
 These two metrics complement each other: EM is stricter (requires identical syntax), while EA allows flexibility as long as the results are correct.  
+
+---
+
+## 🔎 Analysis of Results
+The models show varying strengths in Text-to-SQL generation:  
+
+- **Qwen2.5-3B** achieved the highest **Execution Accuracy (54%)**, indicating stronger semantic understanding and better ability to generate queries that execute correctly, even if the syntax does not exactly match.  
+- **Llama3.2-3B** had comparable **Exact Match (42%)** but lower **Execution Accuracy (48%)**, suggesting that while it often produced syntactically correct queries, they were more prone to semantic errors when executed.  
+- **Ministral-3B** performed weakest (**34% EM, 46% EA**), reflecting both lower syntactic precision and weaker semantic alignment.  
+
+### ⚠️ Important Note on Scoring
+During evaluation, minor syntactical differences—such as:  
+- Extra whitespace (`COUNT(*)` vs `COUNT ( * )`),  
+- Case sensitivity of SQL keywords,  
+- Returned column names (`COUNT(*)` vs `COUNT ( * )`),  
+
+can **artificially reduce EM scores**. If normalization is not applied, these discrepancies may also lower **Execution Accuracy**, since mismatched column names can cause query results to be treated as different.  
+
+To focus on **semantic correctness**, our detailed error analysis sets aside these minor issues and instead evaluates whether the **query structure and logic** align with the intended meaning of the natural language question.  
 
 ---
 
