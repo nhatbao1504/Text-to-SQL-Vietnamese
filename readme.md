@@ -7,3 +7,15 @@ Data is one of the most valuable resources today, but querying it with **SQL** i
 The main goal is to allow users to ask questions in natural Vietnamese language → the system will automatically generate valid **SQL queries** compatible with the database schema. 
 
 ![Vietnamese-Text-to-SQL](https://github.com/nhatbao1504/Text-to-SQL-Vietnamese/blob/main/assets/pipeline.png?raw=true)
+
+## 🚀 Key Features
+- Convert Vietnamese natural language questions into SQL queries.  
+- Support multiple database schemas.  
+- Fine-tuned with advanced techniques:
+  - **Supervised Fine-Tuning (SFT)**
+  - **LoRA / QLoRA** (parameter-efficient fine-tuning)
+  - **Prompt Engineering** (Alpaca-style prompts)
+  - **Unsloth** (training optimization for speed & memory).  
+- Evaluated using **Execution Accuracy (EA)** and **Exact Match Accuracy (EM)**.  
+
+---
