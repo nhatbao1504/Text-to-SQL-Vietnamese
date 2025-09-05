@@ -4,7 +4,6 @@
 
 # STUDY ON TECHNIQUES FOR CONVERTING NATURAL LANGUAGE QUERIES TO SQL COMMAND WITH LARGE LANGUAGE MODEL
 Data is one of the most valuable resources today, but querying it with **SQL** is often a barrier for non-technical users.   This project studies and develops a **Vietnamese Text-to-SQL system** powered by **Large Language Models (LLMs)** such as **Qwen2.5, Llama3.2, and Ministral-3B**.  
-This project focuses on building a **Vietnamese Text-to-SQL system** powered by **Large Language Models (LLMs)** such as **Qwen2.5, Llama3.2, and Ministral-3B**.  
 
 The goal is to enable users to ask questions in **natural Vietnamese language** and automatically generate corresponding **SQL queries** that can be executed on relational databases.  
 
